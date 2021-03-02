@@ -19,7 +19,7 @@ sed -i "s/^mirrorlist/#mirrorlist/g" /etc/yum.repos.d/CentOS-Base.repo
 sed -i "s/^#base/base/g" /etc/yum.repos.d/CentOS-Base.repo 
 
 
-yum -y install wget
+yum -y install wget redis
 cd /root; NON_INT=1 wget -q -O - https://updates.atomicorp.com/installers/atomic |sh
 yum clean all
 yum -y update
