@@ -18,7 +18,6 @@ EOF
 sed -i "s/^mirrorlist/#mirrorlist/g" /etc/yum.repos.d/CentOS-Base.repo 
 sed -i "s/^#base/base/g" /etc/yum.repos.d/CentOS-Base.repo 
 
-
 yum -y install wget redis
 cd /root; NON_INT=1 wget -q -O - https://updates.atomicorp.com/installers/atomic |sh
 yum clean all
@@ -30,13 +29,11 @@ texhash
 
 yum -y install openvas OSPd-nmap OSPd
 
-
 wget https://github.com/Arachni/arachni/releases/download/v1.5.1/arachni-1.5.1-0.5.12-linux-x86_64.tar.gz && \
     tar xvf arachni-1.5.1-0.5.12-linux-x86_64.tar.gz && \
     mv arachni-1.5.1-0.5.12 /opt/arachni && \
     ln -s /opt/arachni/bin/* /usr/local/bin/ && \
     rm -rf arachni*
-
 
 /usr/sbin/greenbone-nvt-sync 
 /usr/sbin/greenbone-certdata-sync 
